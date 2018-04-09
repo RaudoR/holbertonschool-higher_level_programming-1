@@ -17,8 +17,6 @@ int check_cycle(listint_t *list)
 	head = list;
 	while (list != NULL)
 	{
-		list = list->next;
-		count++;
 		holder = head;
 		n = 0;
 		while (n < count)
@@ -28,6 +26,8 @@ int check_cycle(listint_t *list)
 			n++;
 			holder = holder->next;
 		}
+		list = list->next;
+		count++;
 	}
 	return (0);
 }
