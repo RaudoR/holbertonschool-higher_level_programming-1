@@ -1,0 +1,1 @@
+This is a simple project containing bash scripts and simple python scripts
