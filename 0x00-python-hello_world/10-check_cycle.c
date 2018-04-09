@@ -17,17 +17,17 @@ int check_cycle(listint_t *list)
 	head = list;
 	while (list != NULL)
 	{
+		count++;
 		holder = head;
 		n = 0;
 		while (n < count)
 		{
-			if (holder == list)
+			if (holder == list->next)
 				return (1);
 			n++;
 			holder = holder->next;
 		}
 		list = list->next;
-		count++;
 	}
 	return (0);
 }
