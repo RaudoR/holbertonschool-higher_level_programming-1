@@ -9,25 +9,18 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *holder, *head;
-	int n = 0, count = 0;
+	listint_t *fast, *slow;
 
 	if (list == NULL || list->next == NULL)
 		return (0);
-	head = list;
-	while (list != NULL && list->next != NULL)
+	slow = list;
+	fast = list->next;
+	while (slow != NULL && fast->next != NULL && fast->next->next != NULL)
 	{
-		holder = head;
-		n = 0;
-		while (n < count)
-		{
-			if (holder == list)
-				return (1);
-			n++;
-			holder = holder->next;
-		}
-		list = list->next;
-		count++;
+		if (slow == fast)
+			return (1);
+		slow = slow->next;
+		fast = fast->next->next;
 	}
 	return (0);
 }
