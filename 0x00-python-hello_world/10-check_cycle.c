@@ -12,22 +12,22 @@ int check_cycle(listint_t *list)
 	listint_t *holder, *head;
 	int n = 0, count = 0;
 
-	if (list == NULL)
+	if (list == NULL || list->next == NULL)
 		return (0);
 	head = list;
-	while (list != NULL)
+	while (list != NULL && list->next != NULL)
 	{
-		count++;
 		holder = head;
 		n = 0;
 		while (n < count)
 		{
-			if (holder == list->next)
+			if (holder == list)
 				return (1);
 			n++;
 			holder = holder->next;
 		}
 		list = list->next;
+		count++;
 	}
 	return (0);
 }
