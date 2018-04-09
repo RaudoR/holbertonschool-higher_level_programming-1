@@ -5,7 +5,7 @@
  *
  * @list: list of the linked list
  *
- * Retrun: 0 if there is no cylce 1 if there is
+ * Return: 0 if there is no cylce 1 if there is
  */
 int check_cycle(listint_t *list)
 {
@@ -21,15 +21,12 @@ int check_cycle(listint_t *list)
 		count++;
 		holder = head;
 		n = 0;
-		while(n < count)
+		while (n < count)
 		{
 			if (holder == list)
 				return (1);
-			else
-			{
-				n++;
-				holder = holder->next;
-			}
+			n++;
+			holder = holder->next;
 		}
 	}
 	return (0);
