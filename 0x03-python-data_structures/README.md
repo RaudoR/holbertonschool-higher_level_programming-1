@@ -1,0 +1,1 @@
+This project includes examples of list and tuples in python
