@@ -1,0 +1,1 @@
+This project contains simple data structures like dictionary in python
