@@ -9,12 +9,12 @@ void print_python_bytes(PyObject *p)
 	if (PyBytes_CheckExact(p))
 	{
 		size = PyBytes_Size(p);
-		printf("size: %ld\n", size);
-		printf("trying string: %s\n", PyBytes_AsString(p));
+		printf("  size: %ld\n", size);
+		printf("  trying string: %s\n", PyBytes_AsString(p));
 		size++;
 		if (size > 10)
 			size = 10;
-		printf("first %ld bytes: ", size);
+		printf("  first %ld bytes: ", size);
 		holder = PyBytes_AsString(p);
 		for (i = 0; i < size; i++)
 		{
