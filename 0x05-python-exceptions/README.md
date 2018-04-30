@@ -1,0 +1,1 @@
+This project has examples of try and except
