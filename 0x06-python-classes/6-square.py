@@ -67,7 +67,7 @@ class Square:
         Returns:
             Square of size.
         """
-        return self.size ** 2
+        return self.__size ** 2
 
     def my_print(self):
         """print the square in the cordinates"""
