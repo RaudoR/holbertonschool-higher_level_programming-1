@@ -1,0 +1,1 @@
+This project cointains files of examples of how to use Python calasses and objects
