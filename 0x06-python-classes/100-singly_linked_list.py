@@ -26,6 +26,7 @@ class Node:
         else:
             self.__next_node = value
 
+
 class SinglyLinkedList:
     def __init__(self):
         self.__head = None
