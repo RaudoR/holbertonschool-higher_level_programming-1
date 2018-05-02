@@ -1,0 +1,1 @@
+This projects includes simple funtion to be tested and checks
