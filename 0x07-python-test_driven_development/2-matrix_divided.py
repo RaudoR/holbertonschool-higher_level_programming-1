@@ -9,12 +9,15 @@ def matrix_divided(matrix, div):
     Divides two list inside the matrix
     if the
     Args:
-        a: input variable
-        b: input variable default to 98 if none
+        matrix: input matrix of numbers
+        div: input division number
     Raises:
-        TypeError: if a or b is not a int or float
+        TypeError: if marix is not a int or float or lists
+        TypeError: if matrix list have smae number of elements
+        TypeError: if div is int or float
+        ZeroDivisionError: divide by 0
     Returns:
-        return a + b
+        return not divisible by 0
     """
     if not isinstance(matrix, list) or\
        not all(isinstance(l, list) for l in matrix) or\
