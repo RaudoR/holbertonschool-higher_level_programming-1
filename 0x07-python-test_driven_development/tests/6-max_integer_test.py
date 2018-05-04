@@ -6,6 +6,9 @@ max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
+    """
+    test for max integer function
+    """
     def test_docstring(self):
         doc = __import__('6-max_integer').__doc__
         self.assertIsNotNone(doc)
