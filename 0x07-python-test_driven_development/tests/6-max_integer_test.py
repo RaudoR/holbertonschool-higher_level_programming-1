@@ -31,3 +31,9 @@ class TestMaxInteger(unittest.TestCase):
 
     def test_character(self):
         self.assertEqual(max_integer(['a', 'b', 'c']), 'c')
+
+    def test_character(self):
+        self.assertEqual(max_integer(["Hello", "World"]), "World")
+
+    def test_string(self):
+        self.assertRaises(TypeError, max_integer, [1, 2, "World"])
