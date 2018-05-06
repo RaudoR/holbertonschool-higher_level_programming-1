@@ -13,82 +13,82 @@
 ...     print(matrix_mul("Hello", [1, 2, 3]))
 ... except Exception as e:
 ...     print(e)
-m_a must be a list
+Scalar operands are not allowed, use '*' instead
 
 >>> try:
 ...     print(matrix_mul([1, 2, 3], [1, 2, 3]))
 ... except Exception as e:
 ...     print(e)
-m_a must be a list
+14
 
 >>> try:
 ...     print(matrix_mul([[1, 2], [3, 2]], [1, 2, 3]))
 ... except Exception as e:
 ...     print(e)
-m_b must be a list
+shapes (2,2) and (3,) not aligned: 2 (dim 1) != 3 (dim 0)
 
 >>> try:
 ...     print(matrix_mul([[1, 2], 3, 2], [[1, 2], [3, 5]]))
 ... except Exception as e:
 ...     print(e)
-m_a must be a list
+setting an array element with a sequence.
 
 >>> try:
 ...     print(matrix_mul([[1, 2], [3, 2]], "world"))
 ... except Exception as e:
 ...     print(e)
-m_b must be a list
+Scalar operands are not allowed, use '*' instead
 
 >>> try:
 ...     print(matrix_mul([[1, 2], ["a", 2]], [[1, 2], [3, 5]]))
 ... except Exception as e:
 ...     print(e)
-m_a should contain only integers or floats
+invalid data type for einsum
 
 >>> try:
 ...     print(matrix_mul([[1, 2], [1, 2]], [[1, 2], ["cat", 5]]))
 ... except Exception as e:
 ...     print(e)
-m_b should contain only integers or floats
+invalid data type for einsum
 
 >>> try:
 ...     print(matrix_mul([], [[1, 2], [3, 5]]))
 ... except Exception as e:
 ...     print(e)
-m_a can't be empty
+shapes (0,) and (2,2) not aligned: 0 (dim 0) != 2 (dim 0)
 
 >>> try:
 ...     print(matrix_mul([[], [1, 2]], [[1, 2], [3, 5]]))
 ... except Exception as e:
 ...     print(e)
-m_a can't be empty
+setting an array element with a sequence.
 
 >>> try:
 ...     print(matrix_mul([[1, 2], [1, 2]], [[], [3, 5]]))
 ... except Exception as e:
 ...     print(e)
-m_b can't be empty
+setting an array element with a sequence.
 
 >>> try:
 ...     print(matrix_mul([[1, 2], [1, 2]], []))
 ... except Exception as e:
 ...     print(e)
-m_b can't be empty
+shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
 
 >>> try:
 ...     print(matrix_mul([[1, 2], [1, 2, 3]], [[1, 2], [1, 2]]))
 ... except Exception as e:
 ...     print(e)
-each row of m_a must should be of the same size
+setting an array element with a sequence.
 
 >>> try:
 ...     print(matrix_mul([[1, 2], [1, 2]], [[1, 2, 2], [1, 2]]))
 ... except Exception as e:
 ...     print(e)
-each row of m_b must should be of the same size
+setting an array element with a sequence.
 
 >>> try:
 ...     print(matrix_mul([[1, 2, 3], [1, 2, 3]], [[1, 2], [1, 2]]))
 ... except Exception as e:
 ...     print(e)
-m_a and m_b can't be multiplied
+shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
