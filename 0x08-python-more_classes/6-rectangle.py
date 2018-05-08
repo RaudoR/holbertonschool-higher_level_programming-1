@@ -59,9 +59,9 @@ class Rectangle:
             ValueError: value is less than 0
         """
         if not isinstance(value, int):
-            raise TypeError("width must be an integer")
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
@@ -88,4 +88,4 @@ class Rectangle:
     def __del__(self):
         """delete the square inputed"""
         Rectangle.number_of_instances -= 1
-        print("Bye rectangle…")
+        print("Bye rectangle...")
