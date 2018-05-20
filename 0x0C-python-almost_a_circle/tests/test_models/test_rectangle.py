@@ -185,3 +185,8 @@ class TestRectangle(unittest.TestCase):
         t1 = Rectangle(10, 10, 10, 10, 10)
         t1.update(24, 3, height=1)
         self.assertEqual(t1.__str__(), "[Rectangle] (24) 10/10 - 3/10")
+
+    def test_dictionary_check(self):
+        dic = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        t1 = Rectangle(10, 2, 1, 9, 1)
+        self.assertEqual(dic, t1.to_dictionary())
