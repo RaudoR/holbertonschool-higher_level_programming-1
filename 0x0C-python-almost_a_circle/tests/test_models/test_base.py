@@ -110,3 +110,14 @@ class TestBase(unittest.TestCase):
         Square.save_to_file(list_squares_input)
         list_squares_output = Square.load_from_file()
         self.assertNotEqual(list_squares_input, list_squares_output)
+
+    def test_save_load_from_csv_file(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        r2 = Rectangle(2, 4)
+        list_rectangles_input = [r1, r2]
+        Rectangle.save_to_file_csv(list_rectangles_input)
+        list_rectangles_output = Rectangle.load_from_file_csv()
+        self.assertTrue(list_rectangles_output[0].__str__()
+                        == list_rectangles_input[0].__str__())
+        self.assertTrue(list_rectangles_output[1].__str__()
+                        == list_rectangles_input[1].__str__())

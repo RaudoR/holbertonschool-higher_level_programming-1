@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """This class is the base class"""
+import csv
 import json
 
 
@@ -65,7 +66,7 @@ class Base:
         """returns an instance with all attribute set
         Args:
             dictionary: dictionary inputed
-        Return:
+        Returns:
             isntance with all the set attributes
         """
         if cls.__name__ == "Rectangle":
@@ -77,9 +78,53 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """laod the object from Json file
+        Returns:
+            This function will return the list of dictionart of the
+            Json str representation
+        """
         try:
             with open("{}.json".format(cls.__name__), 'r') as f:
                 return [cls.create(**obj) for obj in
                         cls.from_json_string(f.read())]
+        except Exception:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializes to CSV
+        args:
+            list_objs: list of objects input
+        """
+        if cls.__name__ == "Rectangle":
+            fields = ["id", "width", "height", 'x', 'y']
+        else:
+            fields = ["id", "size", 'x', 'y']
+        with open("{}.csv".format(cls.__name__), 'w') as f:
+            if list_objs != None:
+                dict_writer = csv.DictWriter(f, fields)
+                dict_writer.writeheader()
+                dict_writer.writerows([obj.to_dictionary()
+                                       for obj in list_objs])
+            else:
+                dict_writer = csv.writer(f)
+                dict_writer.writerow([[]])
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserializes to CSV
+        Returns:
+            This function will return the list of dictionart of the
+            CSV file
+        """
+        try:
+            with open("{}.csv".format(cls.__name__), newline='') as f:
+                dict_reader = csv.DictReader(f)
+                new_list = []
+                for line in dict_reader:
+                    for key, item in line.items():
+                        line[key] = int(item)
+                    new_list.append(line)
+                return [cls.create(**obj) for obj in new_list]
         except Exception:
             return []
