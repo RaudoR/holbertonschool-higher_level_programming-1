@@ -2,6 +2,7 @@
 """unitest for base"""
 import unittest
 import json
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -112,6 +113,7 @@ class TestBase(unittest.TestCase):
         self.assertNotEqual(list_squares_input, list_squares_output)
 
     def test_save_load_from_csv_file(self):
+        """check if load and save work for csv"""
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         list_rectangles_input = [r1, r2]
@@ -121,3 +123,14 @@ class TestBase(unittest.TestCase):
                         == list_rectangles_input[0].__str__())
         self.assertTrue(list_rectangles_output[1].__str__()
                         == list_rectangles_input[1].__str__())
+    def test_save_empty_csv_file(self):
+        """check if save work with empty csv"""
+        Rectangle.save_to_file_csv(None)
+        list_rectangles_output = Rectangle.load_from_file_csv()
+        self.assertEqual(list_rectangles_output, [])
+
+    def test_save_load_empty_csv_file(self):
+        """check if load work with empty csv"""
+        os.remove("Rectangle.csv")
+        list_rectangles_output = Rectangle.load_from_file_csv()
+        self.assertEqual(list_rectangles_output, [])

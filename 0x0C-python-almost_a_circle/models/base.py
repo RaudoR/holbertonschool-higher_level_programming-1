@@ -2,6 +2,7 @@
 """This class is the base class"""
 import csv
 import json
+import turtle
 
 
 class Base:
@@ -128,3 +129,24 @@ class Base:
                 return [cls.create(**obj) for obj in new_list]
         except Exception:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """opens a widnow and draws all rectangels and squares
+        args:
+            list_rectangles: list of rectanlges input
+            list_squares: list of squares input
+        """
+        turtle.getscreen()
+        for dic in list_rectangles + list_squares:
+            turtle.setpos(dic.x, dix.y)
+            turtle.down()
+            turtle.begin_fill()
+            for i in range(2):
+                turtle.forward(dic.height)
+                turtle.left(90)
+                turtle.forward(dic.width)
+                turtle.left(90)
+            turtle.end_fill()
+            turtle.up()
+        ts.exitonclick()
