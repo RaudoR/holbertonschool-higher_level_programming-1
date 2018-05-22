@@ -150,4 +150,5 @@ class Base:
                 turtle.left(90)
                 turtle.forward(dic.width)
                 turtle.left(90)
+            turtle.up()
         turtle.exitonclick()
