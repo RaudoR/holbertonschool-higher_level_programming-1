@@ -44,7 +44,7 @@ class Square(Rectangle):
             kwargs: input dictionary
         """
         count = 0
-        if args != None and len(args) != 0:
+        if args is not None and len(args) != 0:
             for arg in args:
                 count += 1
                 if count == 1:

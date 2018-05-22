@@ -133,7 +133,6 @@ class TestSquare(unittest.TestCase):
         with self.assertRaises(ValueError):
             t1.update(89, 0, 3, 4)
 
-
     def test_update_x_check(self):
         """check if update checks x validation"""
         t1 = Square(10, 10, 10, 10)

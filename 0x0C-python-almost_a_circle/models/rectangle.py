@@ -119,7 +119,7 @@ class Rectangle(Base):
         """print the square"""
         result = "" + ' ' * self.x
         result = result + str('#') * self.width
-        result = '\n' * self.y +'\n'.join(
+        result = '\n' * self.y + '\n'.join(
             list(result for i in range(self.height)))
         print(result)
 
@@ -135,7 +135,7 @@ class Rectangle(Base):
             kwargs: input dictionary
         """
         count = 0
-        if args != None and len(args) != 0:
+        if args is not None and len(args) != 0:
             for arg in args:
                 count += 1
                 if count == 1:

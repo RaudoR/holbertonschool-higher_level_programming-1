@@ -33,7 +33,6 @@ class TestBase(unittest.TestCase):
         t4 = Base(-5)
         self.assertEqual(t4.id, -5)
 
-
     def test_json_dictionary(self):
         """test if disctionary does return"""
         t1 = Rectangle(10, 7, 2, 8, 1)
@@ -123,6 +122,7 @@ class TestBase(unittest.TestCase):
                         == list_rectangles_input[0].__str__())
         self.assertTrue(list_rectangles_output[1].__str__()
                         == list_rectangles_input[1].__str__())
+
     def test_save_empty_csv_file(self):
         """check if save work with empty csv"""
         Rectangle.save_to_file_csv(None)

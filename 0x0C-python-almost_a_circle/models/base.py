@@ -35,7 +35,7 @@ class Base:
             Json representation of the dictionary or empty when
             dictionary doesn't exist
         """
-        if list_dictionaries == None or len(list_dictionaries) == 0:
+        if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -46,7 +46,7 @@ class Base:
             list_objs: input object to turn to json
         """
         new_list = []
-        if list_objs != None:
+        if list_objs is not None:
             new_list = [obs.to_dictionary() for obs in list_objs]
         with open("{}.json".format(cls.__name__), "w") as f:
             f.write(cls.to_json_string(new_list))
@@ -59,7 +59,7 @@ class Base:
         Returns:
             list representation fo json
         """
-        if json_string == None or len(json_string) == 0:
+        if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
 
@@ -103,7 +103,7 @@ class Base:
         else:
             fields = ["id", "size", 'x', 'y']
         with open("{}.csv".format(cls.__name__), 'w') as f:
-            if list_objs != None:
+            if list_objs is not None:
                 dict_writer = csv.DictWriter(f, fields)
                 dict_writer.writeheader()
                 dict_writer.writerows([obj.to_dictionary()
@@ -139,8 +139,10 @@ class Base:
             list_squares: list of squares input
         """
         turtle.getscreen()
+        turtle.shape("turtle")
         for dic in list_rectangles + list_squares:
-            turtle.pencolor((random.random(), random.random(), random.random()))
+            turtle.pencolor(
+                (random.random(), random.random(), random.random()))
             turtle.setpos(dic.x, dic.y)
             turtle.down()
             for i in range(2):
@@ -148,5 +150,4 @@ class Base:
                 turtle.left(90)
                 turtle.forward(dic.width)
                 turtle.left(90)
-            turtle.up()
         turtle.exitonclick()
