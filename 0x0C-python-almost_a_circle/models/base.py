@@ -139,7 +139,6 @@ class Base:
             list_squares: list of squares input
         """
         turtle.getscreen()
-        turtle.setworldcoordinates(0, 0, width, height)
         for dic in list_rectangles + list_squares:
             turtle.pencolor((random.random(), random.random(), random.random()))
             turtle.setpos(dic.x, dic.y)
