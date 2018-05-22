@@ -3,6 +3,7 @@
 import csv
 import json
 import turtle
+import random
 
 
 class Base:
@@ -138,15 +139,15 @@ class Base:
             list_squares: list of squares input
         """
         turtle.getscreen()
+        turtle.setworldcoordinates(0, 0, width, height)
         for dic in list_rectangles + list_squares:
-            turtle.setpos(dic.x, dix.y)
+            turtle.pencolor((random.random(), random.random(), random.random()))
+            turtle.setpos(dic.x, dic.y)
             turtle.down()
-            turtle.begin_fill()
             for i in range(2):
                 turtle.forward(dic.height)
                 turtle.left(90)
                 turtle.forward(dic.width)
                 turtle.left(90)
-            turtle.end_fill()
             turtle.up()
-        ts.exitonclick()
+        turtle.exitonclick()
