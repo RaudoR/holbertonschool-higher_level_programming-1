@@ -1,4 +1,5 @@
--- This creaates user_0d_1 and grant all privileges to it
+-- This creaates database hbtn_0d_2
+-- also creates user_0d_2 and grants select privelege
 CREATE DATABASE IF NOT EXISTS hbtn_0d_2;
 CREATE USER IF NOT EXISTS user_0d_2@localhost IDENTIFIED BY 'user_0d_2_pwd';
 GRANT SELECT ON * . * TO user_0d_2@localhost;
