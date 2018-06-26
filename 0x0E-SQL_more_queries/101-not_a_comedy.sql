@@ -1,4 +1,4 @@
--- This list all tv shows with genres
+-- This list all tv shows that are not comedy
 SELECT DISTINCT tv_shows.title
 FROM tv_shows
 LEFT OUTER JOIN tv_show_genres
