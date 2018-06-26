@@ -1,4 +1,4 @@
--- This list all tv shows with genres
+-- This list genres that are not in Dexter
 SELECT DISTINCT tv_genres.name
 FROM tv_shows
 LEFT OUTER JOIN tv_show_genres
