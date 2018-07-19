@@ -1,0 +1,1 @@
+This project is includes examples of object-relational mapping
