@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""lists all State objects that contain the letter a from the database
+""" prints the State object with the name passed as argument from the database
 Args:
     mysql username: name of the user
     mysql password: password for database
     database name: name of the database
+    state name to search: name of the state to search
 """
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -16,7 +17,10 @@ if __name__ == "__main__":
     Session = sessionmaker()
     session = Session(bind=engine)
     Base.metadata.create_all(engine)
-    for state in session.query(State).filter(State.name.like('%a%'))\
-                                     .order_by(State.id).all():
-        print("{}: {}".format(state.id, state.name))
+    states = session.query(State).filter(State.name == argv[4]).all()
+    if states:
+        for state in states:
+            print("{}".format(state.id))
+    else:
+        print("Not found")
     session.close()
