@@ -5,6 +5,7 @@ Args:
     mysql username: name of the user
     mysql password: password for database
     database name: name of the database
+    name searched: state name to search
 """
 import MySQLdb
 from sys import argv
