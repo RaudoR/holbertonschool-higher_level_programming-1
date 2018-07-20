@@ -15,6 +15,7 @@ if __name__ == "__main__":
     WHERE name LIKE 'N%'\
     ORDER BY states.id ASC")
     for row in cur.fetchall():
-        print(row)
+        if row[1][0] == 'N':
+            print(row)
     cur.close()
     db.close()
