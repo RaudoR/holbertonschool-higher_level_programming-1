@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists all State objects from the database
+"""lists all State objects that contain the letter a from the database
 Args:
     mysql username: name of the user
     mysql password: password for database

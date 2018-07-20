@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""lists all State objects from the database
+"""prints the first State object from the database
 Args:
     mysql username: name of the user
     mysql password: password for database
