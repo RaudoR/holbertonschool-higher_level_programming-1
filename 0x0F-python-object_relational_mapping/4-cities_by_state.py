@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""takes in an argument and displays all values in the states table
-where name matches the argument safe from SQL injection
+"""lists all cities from the database
 Args:
     mysql username: name of the user
     mysql password: password for database
