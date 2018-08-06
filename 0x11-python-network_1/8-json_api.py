@@ -1,10 +1,20 @@
 #!/usr/bin/python3
-"""fetches https://intranet.hbtn.io/status"""
-import requests
+"""takes in a letter and sends a POST request to
+http://0.0.0.0:5000/search_user with the letter as a parameter.
+"""
+from requests import post
 from sys import argv
 if __name__ == "__main__":
-    r = requests.get(argv[1])
-    if r.status_code >= 400:
-        print("Error code: {}".format(r.status_code))
+    if len(argv) > 1:
+        q = argv[1]
     else:
-        print(r.text)
+        q = ""
+    try:
+        r = post("http://0.0.0.0:5000/search_user",
+                 data={'q': q}).json()
+        if "id" in r and "name" in r:
+            print("[{}] {}".format(r["id"], r["name"]))
+        else:
+            print("No result")
+    except ValueError:
+        print("Not a valid JSON")
