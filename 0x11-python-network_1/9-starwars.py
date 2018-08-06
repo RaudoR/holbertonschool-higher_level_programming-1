@@ -4,7 +4,7 @@ from requests import get
 from sys import argv
 if __name__ == "__main__":
     json = get("https://swapi.co/api/people/?search={}".
-                format(argv[1])).json()
+               format(argv[1])).json()
     print("Number of results: {}".format(json["count"]))
     for args in json["results"]:
         print(args["name"])
