@@ -1,0 +1,1 @@
+This project contains  Javascript - Objects, Scopes and Closures
