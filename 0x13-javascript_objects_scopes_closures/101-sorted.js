@@ -6,7 +6,7 @@ for (let k in data) {
 }
 for (let key in ndict) {
   for (let k in data) {
-    if (data[k] == key) {
+    if (String(data[k]) === String(key)) {
       ndict[key].push(k);
     }
   }
