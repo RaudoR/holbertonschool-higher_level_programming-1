@@ -45,119 +45,140 @@ The size of a square is crucial for a square, many things depend of it (area com
 * Instantiation with size (no type/value verification)
 * Returns 0 otherwise
 
-[2-mul.c](./2-mul.c )
+[2-square.py](./2-square.py)
 ```
-Collaboration is multiplication
-Write a function that multiplies two integers.
+Write a class Square that defines a square by: (based on 1-square.py)
 ```
-* Prototype: int mul(int a, int b);
+* Private instance attribute: size
+* Instantiation with optional size: def __init__(self, size=0): 
+  * size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+  * if size is less than 0, raise a ValueError exception with the message size must be >= 0
+* You are not allowed to import any module
 
-[3-print_numbers.c](./3-print_numbers.c)
+[3-square.py](./3-square.py)
 ```
-The numbers speak for themselves
-Write a function that prints the numbers, from 0 to 9, followed by a new line.
+Write a class Square that defines a square by: (based on 2-square.py)
 ```
-* Prototype: void print_numbers(void);
-* You can only use _putchar twice in your code
+* Private instance attribute: size
+* Instantiation with optional size: def __init__(self, size=0):
+  * size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+  * if size is less than 0, raise a ValueError exception with the message size must be >= 0
+* Public instance method: def area(self): that returns the current square area
+* You are not allowed to import any module
 
-[4-print_most_numbers.c](./4-print_most_numbers.c)
+[4-square.py](./4-square.py)
 ```
-I believe in numbers and signs
-Write a function that prints the numbers, from 0 to 9, followed by a new line.
-```
-* Prototype: void print_most_numbers(void);
-* Do not print 2 and 4
-* You can only use _putchar twice in your code
+Write a class Square that defines a square by: (based on 3-square.py)
 
-[5-more_numbers.c](./5-more_numbers.c)
+Why?
+Why a getter and setter?
+Reminder: size is a private attribute. We did that to make sure we control the type and value. Getter and setter methods are not 100% Python, but more OOP. With them, you will be able to validate the assignation of a private attribute and also define how this one will be available from outside (get the attribute value) - by copy? by assignation, etc. Also, adding type/value validation in the setter will centralize the logic, you will do it in only one place.
 ```
-Numbers constitute the only universal language
-Write a function that prints 10 times the numbers, from 0 to 14,
-followed by a new line.
-```
-*  Prototype: void more_numbers(void);
-* You can only use _putchar three times in your code
+* Private instance attribute: size:
+  * Private instance attribute: size: 
+  * property setter def size(self, value): to set it: 
+    * size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+    * if size is less than 0, raise a ValueError exception with the message size must be >= 0
+* Instantiation with optional size: def __init__(self, size=0):
+* Public instance method: def area(self): that returns the current square area
+* You are not allowed to import any module
 
-[6-print_line.c](./6-print_line.c)
+[5-square.py](./5-square.py)
 ```
-The shortest distance between two points is a straight line
-Write a function that draws a straight line in the terminal.
+Write a class Square that defines a square by: (based on 4-square.py)
 ```
-* Prototype: void print_line(int n);
-* You can only use _putchar function to print
-* Where n is the number of times the character _ should be printed
-* The line should end with a \n
-* If n is 0 or less, the function should only print \n
+* Private instance attribute: size: 
+  * property def size(self): to retrieve it
+  * property setter def size(self, value): to set it: 
+    * size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+    * if size is less than 0, raise a ValueError exception with the message size must be >= 0
+* Instantiation with optional size: def __init__(self, size=0):
+* Public instance method: def area(self): that returns the current square area
+* Public instance method: def my_print(self): that prints in stdout the square with the character #: 
+  * if size is equal to 0, print an empty line
+* You are not allowed to import any module
 
-[7-print_diagonal.c](./7-print_diagonal.c)
+[6-square.py](./6-square.py)
 ```
-I feel like I am diagonally parked in a parallel universe
-Write a function that draws a diagonal line on the terminal.
+Write a class Square that defines a square by: (based on 5-square.py)
 ```
-* Prototype: void print_diagonal(int n);
-* You can only use _putchar function to print
-* Where n is the number of times the character \ should be printed
-* The diagonal should end with a \n
-* If n is 0 or less, the function should only print a \n
+* Private instance attribute: size: 
+  * property def size(self): to retrieve it
+  * property setter def size(self, value): to set it: 
+    * size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+    * if size is less than 0, raise a ValueError exception with the message size must be >= 0
+* Private instance attribute: position: 
+  * property def position(self): to retrieve it
+  * property setter def position(self, value): to set it: 
+    * position must be a tuple of 2 positive integers, otherwise raise a TypeError exception with the message position must be a tuple of 2 positive integers
+* Instantiation with optional size and optional position: def __init__(self, size=0, position=(0, 0)):
+* Public instance method: def area(self): that returns the current square area
+* Public instance method: def my_print(self): that prints in stdout the square with the character #:
+  * if size is equal to 0, print an empty line
+  * position should be use by using space - Don’t fill lines by spaces when position[1] > 0
+* You are not allowed to import any module
 
-[8-print_square.c](./8-print_square.c)
+[100-singly_linked_list.py](./100-singly_linked_list.py)
 ```
-You are so much sunshine in every square inch
-Write a function that prints a square, followed by a new line.
+Write a class Node that defines a node of a singly linked list by:
+And, write a class SinglyLinkedList that defines a singly linked list by: 
 ```
-* Prototype: void print_square(int size);
-* You can only use _putchar function to print
-* Where size is the size of the square
-* If size is 0 or less, the function should print only a new line
-* Use the character # to print the square
+* Private instance attribute: data: 
+  * property def data(self): to retrieve it
+  * property setter def data(self, value): to set it: 
+    * data must be an integer, otherwise raise a TypeError exception with the message data must be an integer
+* Private instance attribute: next_node: 
+  * property def next_node(self): to retrieve it
+  * property setter def next_node(self, value): to set it: 
+    * next_node can be None or must be a Node, otherwise raise a TypeError exception with the message next_node must be a Node object
+* Instantiation with data and next_node: def __init__(self, data, next_node=None):
+* Private instance attribute: head (no setter or getter)
+* Simple instantiation: def __init__(self):
+* Should be printable:
+  * print the entire list in stdout
+  * one node number by line
+* Public instance method: def sorted_insert(self, value): that inserts a new Node into the correct sorted position in the list (increasing order)
+* You are not allowed to import any module
 
-[9-fizz_buzz.c](./9-fizz_buzz.c)
+[101-square.py](./101-square.py)
 ```
-The “Fizz-Buzz test” is an interview question designed to help filter out the
-99.5% of programming job candidates who can’t seem to program their way out of
-a wet paper bag.
-Write a program that prints the numbers from 1 to 100, followed by a new line.
+Write a class Square that defines a square by: (based on 6-square.py)
 ```
-* But for multiples of three print Fizz instead of the number and for the
-  multiples of five print Buzz. For numbers which are multiples of both three and
-  five print FizzBuzz.
+* Private instance attribute: size:
+  * property def size(self): to retrieve it
+  * property setter def size(self, value): to set it: 
+    * size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+    * if size is less than 0, raise a ValueError exception with the message size must be >= 0
+* Private instance attribute: position:
+  * property def position(self): to retrieve it
+  * property setter def position(self, value): to set it: 
+    * position must be a tuple of 2 positive integers, otherwise raise a TypeError exception with the message position must be a tuple of 2 positive integer
+* Instantiation with optional size and optional position: def __init__(self, size=0, position=(0, 0)):
+* Public instance method: def area(self): that returns the current square area
+* Public instance method: def my_print(self): that prints in stdout the square with the character #: 
+  * if size is equal to 0, print an empty line
+  * position should be use by using space
+* Printing a Square instance should have the same behavior as my_print()
+* You are not allowed to import any module
 
-* Each number or word should be separated by a space
-* You are allowed to use the standard library
+[102-square.py](./102-square.py)
+```
+Write the Python class MagicClass that does exactly the same as the following Python bytecode:
+```
+* Private instance attribute: size: 
+  * property def size(self): to retrieve it
+  * property setter def size(self, value): to set it: 
+    * size must be a number (float or integer), otherwise raise a TypeError exception with the message size must be a number
+    * if size is less than 0, raise a ValueError exception with the message size must be >= 0
+* Instantiation with size: def __init__(self, size=0):
+* Public instance method: def area(self): that returns the current square area
+* Square instance can answer to comparators: ==, !=, >, >=, < and <= based on the square area
+* You are not allowed to import any module
 
-[10-print_triangle.c](./10-print_triangle.c)
+[103-magic_class.py](./103-magic_class.py)
 ```
 Write a function that prints a triangle, followed by a new line.
 ```
-* Prototype: void print_triangle(int size);
-* You can only use _putchar function to print
-* Where size is the size of the triangle
-* If size is 0 or less, the function should print only a new line
-* Use the character # to print the triangle
-
-[100-prime_factor.c](./100-prime_factor.c)
-```
-The problem of distinguishing prime numbers from composite numbers and of
-resolving the latter into their prime factors is known to be one of the most
-important and useful in arithmetic
-The prime factors of 1231952 are 2, 2, 2, 2, 37 and 2081.
-Write a program that finds and prints the largest prime factor of the number
-612852475143, followed by a new line.
-```
-* You are allowed to use the standard library
-* Your program will be compiled with this command: gcc -Wall -pedantic -Werror -
-* Wextra 100-prime_factor.c -o 100-prime_factor -lm
-
-[101-print_number.c](./101-print_number.c)
-```
-Numbers have life; they're not just symbols on paper
-Write a function that prints an integer.
-```
-* Prototype: void print_number(int n);
-* You can only use _putchar function to print
-* You are not allowed to use long
-* You are not allowed to use arrays or pointers
-* You are not allowed to hard-code special values
 
 ## Author
 ### Kevin Yook 
