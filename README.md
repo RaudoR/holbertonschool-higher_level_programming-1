@@ -8,6 +8,7 @@
 
 # JavaScript (programming language)
 
+<img alt="Python" src=https://github.com/yook00627/holbertonschool-higher_level_programming/blob/master/python-logo.png>\
 
 # Documentation
 
