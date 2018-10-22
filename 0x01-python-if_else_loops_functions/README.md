@@ -37,127 +37,170 @@ This program will assign a random signed number to the variable number each time
     * if the number is less than 0: is negative
   * followed by a new line
 
-[1-isdigit.c](./1-isdigit.c)
+[1-last_digit.py](./1-last_digit.py)
 ```
-Write a function that checks for a digit (0 through 9).
+This program will assign a random signed number to the variable number each time it is executed. Complete the source code in order to print the last digit of the number stored in the variable number.
 ```
-* Prototype: int _isdigit(int c);
-* Returns 1 if c is a digit
-* Returns 0 otherwise
+* You can find the source code here
+* The variable number will store a different value every time you will run this program
+* You don’t have to understand what import, random.randint do. Please do not touch this code. This line should not change: number = random.randint(-10000, 10000)
+* The output of the program should be: 
+  * The string Last digit of, followed by
+  * the number, followed by
+  * the string is, followed by 
+    * if the number is greater than 5: the string and is greater than 5
+    * if the number is 0: the string and is 0
+    * if the number is less than 6 and not 0: the string and is less than 6 and not 0
+  * followed by a new line
 
-[2-mul.c](./2-mul.c )
+[2-print_alphabet.py](./2-print_alphabet.py)
 ```
-Collaboration is multiplication
-Write a function that multiplies two integers.
+Write a program that prints the alphabet, in lowercase, not followed by a new line.
 ```
-* Prototype: int mul(int a, int b);
+* You can only use one print function with string format
+* You can only use one loop in your code
+* You are not allowed to store characters in a variable
+* You are not allowed to import any module
 
-[3-print_numbers.c](./3-print_numbers.c)
+[3-print_alphabt.py](./3-print_alphabt.py)
 ```
-The numbers speak for themselves
-Write a function that prints the numbers, from 0 to 9, followed by a new line.
+Write a program that prints the alphabet, in lowercase, not followed by a new line.
 ```
-* Prototype: void print_numbers(void);
-* You can only use _putchar twice in your code
+* Print all the letters except q and e
+* You can only use one print function with string format
+* You can only use one loop in your code
+* You are not allowed to store characters in a variable
+* You are not allowed to import any module
 
-[4-print_most_numbers.c](./4-print_most_numbers.c)
+[4-print_hexa.py](./4-print_hexa.py)
 ```
-I believe in numbers and signs
-Write a function that prints the numbers, from 0 to 9, followed by a new line.
+Write a program that prints all numbers from 0 to 98 in decimal and in hexadecimal (as in the following example)
 ```
-* Prototype: void print_most_numbers(void);
-* Do not print 2 and 4
-* You can only use _putchar twice in your code
+* You can only use one print function with string format
+* You can only use one loop in your code
+* You are not allowed to store numbers or strings in a variable
+* You are not allowed to import any module
 
-[5-more_numbers.c](./5-more_numbers.c)
+[5-print_comb2.py](./5-print_comb2.py)
 ```
-Numbers constitute the only universal language
-Write a function that prints 10 times the numbers, from 0 to 14,
-followed by a new line.
+Write a program that prints numbers from 0 to 99.
 ```
-*  Prototype: void more_numbers(void);
-* You can only use _putchar three times in your code
+* Numbers must be separated by ,, followed by a space
+* Numbers should be printed in ascending order, with two digits
+* The last number should be followed by a new line
+* You can only use no more than 2 print functions with string format
+* You can only use one loop in your code
+* You are not allowed to store numbers or strings in a variable
+* You are not allowed to import any module
 
-[6-print_line.c](./6-print_line.c)
+[6-print_comb3.py](./6-print_comb3.py)
 ```
-The shortest distance between two points is a straight line
-Write a function that draws a straight line in the terminal.
+Write a program that prints all possible different combinations of two digits.
 ```
-* Prototype: void print_line(int n);
-* You can only use _putchar function to print
-* Where n is the number of times the character _ should be printed
-* The line should end with a \n
-* If n is 0 or less, the function should only print \n
+* Numbers must be separated by ,, followed by a space
+* The two digits must be different
+* 01 and 10 are considered the same combination of the two digits 0 and 1
+* Print only the smallest combination of two digits
+* Numbers should be printed in ascending order, with two digits
+* The last number should be followed by a new line
+* You can only use no more than 3 print functions with string format
+* You can only use no more than 2 loops in your code
+* You are not allowed to store numbers or strings in a variable
+* You are not allowed to import any module
 
-[7-print_diagonal.c](./7-print_diagonal.c)
+[7-islower.py](./7-islower.py)
 ```
-I feel like I am diagonally parked in a parallel universe
-Write a function that draws a diagonal line on the terminal.
+Write a function that checks for lowercase character. 
+You don’t need to understand __import__
 ```
-* Prototype: void print_diagonal(int n);
-* You can only use _putchar function to print
-* Where n is the number of times the character \ should be printed
-* The diagonal should end with a \n
-* If n is 0 or less, the function should only print a \n
+* Prototype: def islower(c):
+* Returns True if c is lowercase
+* Returns False otherwise
+* You are not allowed to import any module
+* You are not allowed to use str.upper() and str.isupper()
+* Tips: ord()
 
-[8-print_square.c](./8-print_square.c)
+[8-uppercase.py](./8-uppercase.py)
 ```
-You are so much sunshine in every square inch
-Write a function that prints a square, followed by a new line.
+Write a function that prints a string in uppercase followed by a new line.
+You don’t need to understand __import__
 ```
-* Prototype: void print_square(int size);
-* You can only use _putchar function to print
-* Where size is the size of the square
-* If size is 0 or less, the function should print only a new line
-* Use the character # to print the square
+* Prototype: def uppercase(str):
+* You can only use no more than 2 print functions with string format
+* You can only use one loop in your code
+* You are not allowed to import any module
+* You are not allowed to use str.upper() and str.isupper()
+* Tips: ord()
 
-[9-fizz_buzz.c](./9-fizz_buzz.c)
+[9-print_last_digit.py](./9-print_last_digit.py)
 ```
-The “Fizz-Buzz test” is an interview question designed to help filter out the
-99.5% of programming job candidates who can’t seem to program their way out of
-a wet paper bag.
-Write a program that prints the numbers from 1 to 100, followed by a new line.
+Write a function that prints the last digit of a number.
+You don’t need to understand __import__
 ```
-* But for multiples of three print Fizz instead of the number and for the
-  multiples of five print Buzz. For numbers which are multiples of both three and
-  five print FizzBuzz.
+* Prototype: def print_last_digit(number):
+* Returns the value of the last digit
+* You are not allowed to import any module
 
-* Each number or word should be separated by a space
-* You are allowed to use the standard library
+[10-add.py](./10-add.py)
+```
+Write a function that adds two integers and returns the result.
+You don’t need to understand __import__
+```
+* Prototype: def add(a, b):
+* Returns the value of a + b
+* You are not allowed to import any module
 
-[10-print_triangle.c](./10-print_triangle.c)
+[11-pow.py](./11-pow.py)
 ```
-Write a function that prints a triangle, followed by a new line.
+Write a function that computes a to the power of b and return the value.
+You don’t need to understand __import__
 ```
-* Prototype: void print_triangle(int size);
-* You can only use _putchar function to print
-* Where size is the size of the triangle
-* If size is 0 or less, the function should print only a new line
-* Use the character # to print the triangle
+* Prototype: def pow(a, b):
+* Returns the value of a ^ b
+* You are not allowed to import any module
 
-[100-prime_factor.c](./100-prime_factor.c)
+[12-fizzbuzz.py](./12-fizzbuzz.py)
 ```
-The problem of distinguishing prime numbers from composite numbers and of
-resolving the latter into their prime factors is known to be one of the most
-important and useful in arithmetic
-The prime factors of 1231952 are 2, 2, 2, 2, 37 and 2081.
-Write a program that finds and prints the largest prime factor of the number
-612852475143, followed by a new line.
+Write a function that prints the numbers from 1 to 100 separated by a space. 
+You don’t need to understand __import__
 ```
-* You are allowed to use the standard library
-* Your program will be compiled with this command: gcc -Wall -pedantic -Werror -
-* Wextra 100-prime_factor.c -o 100-prime_factor -lm
+* For multiples of three print Fizz instead of the number and for multiples of five print Buzz. 
+* For numbers which are multiples of both three and five print FizzBuzz.
+* Prototype: def fizzbuzz():
+* Each element should be followed by a space
+* You are not allowed to import any module
 
-[101-print_number.c](./101-print_number.c)
+[13-insert_number.c](./13-insert_number.c)
 ```
-Numbers have life; they're not just symbols on paper
-Write a function that prints an integer.
+Technical interview preparation: 
+Write a function in C that inserts a number into a sorted singly linked list.
 ```
-* Prototype: void print_number(int n);
-* You can only use _putchar function to print
-* You are not allowed to use long
-* You are not allowed to use arrays or pointers
-* You are not allowed to hard-code special values
+* You are not allowed to google anything
+* Whiteboard first
+* Prototype: listint_t *insert_node(listint_t **head, int number);
+* Return: the address of the new node, or NULL if it failed
+
+[100-print_tebahpla.py](./100-print_tebahpla.py)
+```
+Write a program that prints the alphabet, in reverse order, alternating lowercase and uppercase (z in lowercase and Y in uppercase) , not followed by a new line.
+```
+* You can only use one print function with string format
+* You can only use one loop in your code
+* You are not allowed to store characters in a variable
+* You are not allowed to import any module
+
+[101-remove_char_at.py](./101-remove_char_at.py)
+```
+Write a function that creates a copy of the string, removing the character at the position n (not the Python way, the “C array index”).
+You don’t need to understand __import__
+```
+* Prototype: def remove_char_at(str, n):
+* You are not allowed to import any module
+
+[102-magic_calculation.py](./102-magic_calculation.py)
+```
+Write the Python function def magic_calculation(a, b, c): that does exactly the same as the following Python bytecode:
+```
 
 ## Author
 ### Kevin Yook 
