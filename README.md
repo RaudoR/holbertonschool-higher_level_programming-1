@@ -4,7 +4,7 @@
 
 # Python (programming language)
 
-<img alt="C" src=https://github.com/yook00627/holbertonschool-low_level_programming/blob/master/c-programming.png>
+<img alt="Python" src=https://github.com/yook00627/holbertonschool-higher_level_programming/blob/master/python-logo.png>
 
 # Documentation
 
