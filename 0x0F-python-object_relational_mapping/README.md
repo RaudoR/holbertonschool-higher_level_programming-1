@@ -13,216 +13,248 @@
 
 ## Exercises
 
-[0-privileges.sql](./0-privileges.sql)
+[0-select_states.py](./0-select_states.py)
 ```
-Write a script that lists all privileges of the MySQL users user_0d_1 and user_0d_2 on your server.
+Write a script that lists all states from the database hbtn_0e_0_usa: 
 ```
+* Your script should take 3 arguments: mysql username, mysql password and database name (no argument validation needed)
+* You must use the module MySQLdb (import MySQLdb)
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Results must be sorted in ascending order by states.id
+* Results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-[1-create_user.sql](./1-create_user.sql)
+[1-filter_states.py](./1-filter_states.py)
 ```
-Write a script that creates the MySQL server user user_0d_1. 
+Write a script that lists all states with a name starting with N (upper N) from the database hbtn_0e_0_usa: 
 ```
-* user_0d_1 should have all privileges on your MySQL server
-* The user_0d_1 password should be set to user_0d_1_pwd
-* If the user user_0d_1 already exists, your script should not fail
+* Your script should take 3 arguments: mysql username, mysql password and database name (no argument validation needed)
+* You must use the module MySQLdb (import MySQLdb)
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Results must be sorted in ascending order by states.id
+* Results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-[2-create_read_user.sql](./2-create_read_user.sql)
+[2-my_filter_states.py](./2-my_filter_states.py)
 ```
-Write a script that creates the database hbtn_0d_2 and the user user_0d_2. 
+Write a script that takes in an argument and displays all values in the states table of hbtn_0e_0_usa where name matches the argument.
 ```
-* user_0d_2 should have only SELECT privilege in the database hbtn_0d_2
-* The user_0d_2 password should be set to user_0d_2_pwd
-* If the database hbtn_0d_2 already exists, your script should not fail
-* If the user user_0d_2 already exists, your script should not fail
+* Your script should take 4 arguments: mysql username, mysql password, database name and state name searched (no argument validation needed)
+* You must use the module MySQLdb (import MySQLdb)
+* Your script should connect to a MySQL server running on localhost at port 3306
+* You must use format to create the SQL query with the user input
+* Results must be sorted in ascending order by states.id
+* Results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-[3-force_name.sql](./3-force_name.sql)
+[3-my_safe_filter_states.py](./3-my_safe_filter_states.py)
 ```
-Write a script that creates the table force_name on your MySQL server.
+Wait, do you remember the previous task? Did you test "Arizona'; TRUNCATE TABLE states ; SELECT * FROM states WHERE name = '" as an input?
+What? Empty?
+Yes, it’s an SQL injection to delete all records of a table…
+Once again, write a script that takes in arguments and displays all values in the states table of hbtn_0e_0_usa where name matches the argument. But this time, write one that is safe from MySQL injections!
 ```
-* force_name description:
-  * id INT
-  * name VARCHAR(256) can’t be null
-* The database name will be passed as an argument of the mysql command
-* If the table force_name already exists, your script should not fail
+* Your script should take 4 arguments: mysql username, mysql password, database name and state name searched (safe from MySQL injection)
+* You must use the module MySQLdb (import MySQLdb)
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Results must be sorted in ascending order by states.id
+* Results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-[4-never_empty.sql](./4-never_empty.sql)
+[4-cities_by_state.py](./4-cities_by_state.py)
 ```
-Write a script that creates the table id_not_null on your MySQL server.
+Write a script that lists all cities from the database hbtn_0e_4_usa 
 ```
-* id_not_null description: 
-  * id INT with the default value 1 
-  * name VARCHAR(256)
-* The database name will be passed as an argument of the mysql command
-* If the table id_not_null already exists, your script should not fail
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module MySQLdb (import MySQLdb)
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Results must be sorted in ascending order by cities.id
+* You can use only execute() once
+* Results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-[5-unique_id.sql](./5-unique_id.sql)
+[5-filter_cities.py](./5-filter_cities.py)
 ```
-Write a script that creates the table unique_id on your MySQL server.
+Write a script that takes in the name of a state as an argument and lists all cities of that state, using the database hbtn_0e_4_usa 
 ```
-* unique_id description: 
-  * id INT with the default value 1 and must be unique
-  * name VARCHAR(256)
-* The database name will be passed as an argument of the mysql command
-* If the table unique_id already exists, your script should not fail
+* Your script should take 4 arguments: mysql username, mysql password, database name and state name (SQL injection free!)
+* You must use the module MySQLdb (import MySQLdb)
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Results must be sorted in ascending order by cities.id
+* You can use only execute() once
+* The results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-[6-states.sql](./6-states.sql)
+[model_state.py](./model_state.py)
 ```
-Write a script that creates the database hbtn_0d_usa and the table states (in the database hbtn_0d_usa) on your MySQL server.
+Write a python file that contains the class definition of a State and an instance Base = declarative_base():
 ```
-* states description:
-  * id INT unique, auto generated, can’t be null and is a primary key
-  * name VARCHAR(256) can’t be null
-* If the database hbtn_0d_usa already exists, your script should not fail
-* If the table states already exists, your script should not fail
+* State class: 
+  * inherits from Base Tips
+  * links to the MySQL table states
+  * class attribute id that represents a column of an auto-generated, unique integer, can’t be null and is a primary key
+  * class attribute name that represents a column of a string with maximum 128 characters and can’t be null
+* You must use the module SQLAlchemy
+* Your script should connect to a MySQL server running on localhost at port 3306
+* WARNING: all classes who inherit from Base must be imported before calling Base.metadata.create_all(engine)
 
-[7-cities.sql](./7-cities.sql)
+[7-model_state_fetch_all.py](./7-model_state_fetch_all.py)
 ```
-Write a script that creates the database hbtn_0d_usa and the table cities (in the database hbtn_0d_usa) on your MySQL server.
+Write a script that lists all State objects from the database hbtn_0e_6_usa 
 ```
-* cities description: 
-  * id INT unique, auto generated, can’t be null and is a primary key
-  * state_id INT, can’t be null and must be a FOREIGN KEY that references to id of the states table
-  * name VARCHAR(256) can’t be null
-* If the database hbtn_0d_usa already exists, your script should not fail
-* If the table cities already exists, your script should not fail
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* You must import State and Base from model_state - from model_state import Base, State
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Results must be sorted in ascending order by states.id
+* The results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-[8-cities_of_california_subquery.sql](./8-cities_of_california_subquery.sql)
+[8-model_state_fetch_first.py](./8-model_state_fetch_first.py)
 ```
-Write a script that lists all the cities of California that can be found in the database hbtn_0d_usa.
+Write a script that prints the first State object from the database hbtn_0e_6_usa 
 ```
-* The states table contains only one record where name = California (but the id can be different, as per the example)
-* Results must be sorted in ascending order by cities.id 
-* You are not allowed to use the JOIN keyword
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* You must import State and Base from model_state - from model_state import Base, State
+* Your script should connect to a MySQL server running on localhost at port 3306
+* The state you display must be the first in states.id
+* You are not allowed to fetch all states from the database before displaying the result
+* The results must be displayed as they are in the example below
+* If the table states is empty, print Nothing followed by a new line
+* Your code should not be executed when imported
 
-[9-cities_by_state_join.sql](./9-cities_by_state_join.sql)
+[9-model_state_filter_a.py](./9-model_state_filter_a.py)
 ```
-Write a script that lists all cities contained in the database hbtn_0d_usa.
+Write a script that lists all State objects that contain the letter a from the database hbtn_0e_6_usa 
 ```
-* Each record should display: cities.id - cities.name - states.name
-* Results must be sorted in ascending order by cities.id 
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* You must import State and Base from model_state - from model_state import Base, State
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Results must be sorted in ascending order by states.id
+* The results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-[10-genre_id_by_show.sql](./10-genre_id_by_show.sql)
+[10-model_state_my_get.py](./10-model_state_my_get.py)
 ```
-Import the database dump from hbtn_0d_tvshows to your MySQL server: download
-Write a script that lists all shows contained in hbtn_0d_tvshows that have at least one genre linked.
+Write a script that prints the State object with the name passed as argument from the database hbtn_0e_6_usa 
 ```
-* Each record should display: tv_shows.title - tv_show_genres.genre_id
-* Results must be sorted in ascending order by tv_shows.title and tv_show_genres.genre_id
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 4 arguments: mysql username, mysql password, database name and state name to search (SQL injection free)
+* You must use the module SQLAlchemy
+* You must import State and Base from model_state - from model_state import Base, State
+* Your script should connect to a MySQL server running on localhost at port 3306
+* You can assume you have one record with the state name to search
+* Results must display the states.id
+* If no state has the name you searched for, display Not found
+* Your code should not be executed when imported
 
-[11-genre_id_all_shows.sql](./11-genre_id_all_shows.sql)
+[11-model_state_insert.py](./11-model_state_insert.py)
 ```
-Import the database dump of hbtn_0d_tvshows to your MySQL server: download (same as 10-genre_id_by_show.sql)
-Write a script that lists all shows contained in the database hbtn_0d_tvshows.
+Write a script that adds the State object “Louisiana” to the database hbtn_0e_6_usa
 ```
-* Each record should display: tv_shows.title - tv_show_genres.genre_id
-* Results must be sorted in ascending order by tv_shows.title and tv_show_genres.genre_id
-* If a show doesn’t have a genre, display NULL
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* You must import State and Base from model_state - from model_state import Base, State
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Print the new states.id after creation
+* Your code should not be executed when imported
 
-[12-no_genre.sql](./12-no_genre.sql)
+[12-model_state_update_id_2.py](./12-model_state_update_id_2.py)
 ```
-Import the database dump from hbtn_0d_tvshows to your MySQL server: download (same as 11-genre_id_all_shows.sql)
-Write a script that lists all shows contained in hbtn_0d_tvshows without a genre linked. 
+Write a script that changes the name of a State object from the database hbtn_0e_6_usa 
 ```
-* Each record should display: tv_shows.title - tv_show_genres.genre_id
-* Results must be sorted in ascending order by tv_shows.title and tv_show_genres.genre_id
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* You must import State and Base from model_state - from model_state import Base, State
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Change the name of the State where id = 2 to New Mexico
+* Your code should not be executed when imported
 
-[13-count_shows_by_genre.sql](./13-count_shows_by_genre.sql)
+[13-model_state_delete_a.py](./13-model_state_delete_a.py)
 ```
-Import the database dump from hbtn_0d_tvshows to your MySQL server: download (same as 12-no_genre.sql)
-Write a script that lists all genres from hbtn_0d_tvshows and displays the number of shows linked to each.
+Write a script that deletes all State objects with a name containing the letter a from the database hbtn_0e_6_usa 
 ```
-* Each record should display: <TV Show genre> - <Number of shows linked to this genre>
-* First column must be called genre
-* Second column must be called number_of_shows
-* Don’t display a genre that doesn’t have any shows linked
-* Results must be sorted in descending order by the number of shows linked
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* You must import State and Base from model_state - from model_state import Base, State
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Your code should not be executed when imported
 
-[14-my_genres.sql](./14-my_genres.sql)
+[14-model_city_fetch_by_state.py](./14-model_city_fetch_by_state.py)
 ```
-Import the database dump from hbtn_0d_tvshows to your MySQL server: download (same as 13-count_shows_by_genre.sql)
-Write a script that uses the hbtn_0d_tvshows database to lists all genres of the show Dexter.
+Next, write a script 14-model_city_fetch_by_state.py that prints all City objects from the database hbtn_0e_14_usa: 
 ```
-* The tv_shows table contains only one record where title = Dexter (but the id can be different)
-* Each record should display: tv_genres.name
-* Results must be sorted in ascending order by the genre name
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* You must import State and Base from model_state - from model_state import Base, State
+* Your script should connect to a MySQL server running on localhost at port 3306
+* Results must be sorted in ascending order by cities.id
+* Results must be display as they are in the example below (<state name>: (<city id>) <city name>)
+* Your code should not be executed when imported
 
-[15-comedy_only.sql](./15-comedy_only.sql)
+[model_city.py](./model_city.py)
 ```
-Import the database dump from hbtn_0d_tvshows to your MySQL server: download (same as 14-my_genres.sql)
-Write a script that lists all Comedy shows in the database hbtn_0d_tvshows.
+Write a Python file similar to model_state.py named model_city.py that contains the class definition of a City.
 ```
-* The tv_genres table contains only one record where name = Comedy (but the id can be different
-* Each record should display: tv_shows.title
-* Results must be sorted in ascending order by the show title
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* City class: 
+  * inherits from Base (imported from model_state)
+  * links to the MySQL table cities
+  * class attribute id that represents a column of an auto-generated, unique integer, can’t be null and is a primary key
+  * class attribute name that represents a column of a string of 128 characters and can’t be null
+  * class attribute state_id that represents a column of an integer, can’t be null and is a foreign key to states.id
+* You must use the module SQLAlchemy
 
-[16-shows_by_genre.sql](./16-shows_by_genre.sql)
+[relationship_city.py](./relationship_city.py)
 ```
-Import the database dump from hbtn_0d_tvshows to your MySQL server: download (same as 15-comedy_only.sql)
-Write a script that lists all shows, and all genres linked to that show, from the database hbtn_0d_tvshows.
+Improve the files model_city.py and model_state.py, and save them as relationship_city.py and relationship_state.py:
 ```
-* If a show doesn’t have a genre, display NULL in the genre column
-* Each record should display: tv_shows.title - tv_genres.name
-* Results must be sorted in ascending order by the show title and genre name
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* City class: 
+  * No change
 
-[100-not_my_genres.sql](./100-not_my_genres.sql)
+[relationship_state.py](./relationship_state.py)
 ```
-Import the database dump from hbtn_0d_tvshows to your MySQL server: download (same as 16-shows_by_genre.sql)
-Write a script that uses the hbtn_0d_tvshows database to list all genres not linked to the show Dexter
+Improve the files model_city.py and model_state.py, and save them as relationship_city.py and relationship_state.py:
 ```
-* The tv_shows table contains only one record where title = Dexter (but the id can be different)
-* Each record should display: tv_genres.name
-* Results must be sorted in ascending order by the show title and genre name
-* You can use a maximum of two SELECT statement
-* The database name will be passed as an argument of the mysql command
+* State class: 
+  * In addition to previous requirements, the class attribute cities must represent a relationship with the class City. If the State object is deleted, all linked City objects must be automatically deleted. Also, the reference from a City object to his State should be named state
+* You must use the module SQLAlchemy
 
-[101-not_a_comedy.sql](./101-not_a_comedy.sql)
+[100-relationship_states_cities.py](./100-relationship_states_cities.py)
 ```
-Import the database dump from hbtn_0d_tvshows to your MySQL server: download (same as 100-not_my_genres.sql)
-Write a script that lists all shows without the genre Comedy in the database hbtn_0d_tvshows.
+Write a script that creates the State “California” with the City “San Francisco” from the database hbtn_0e_100_usa: (100-relationship_states_cities.py)
 ```
-* The tv_genres table contains only one record where name = Comedy (but the id can be different)
-* Each record should display: tv_shows.title
-* Results must be sorted in ascending order by the show title
-* You can use a maximum of two SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* Your script should connect to a MySQL server running on localhost at port 3306
+* You must use the cities relationship for all State objects
+* Your code should not be executed when imported
 
-[102-rating_shows.sql](./102-rating_shows.sql)
+[101-relationship_states_cities_list.py](./101-relationship_states_cities_list.py)
 ```
-Import the database hbtn_0d_tvshows_rate dump to your MySQL server: download
-Write a script that lists all shows from hbtn_0d_tvshows_rate by their rating.
+Write a script that lists all State objects, and corresponding City objects, contained in the database hbtn_0e_101_usa 
 ```
-* Each record should display: tv_shows.title - rating sum
-* Results must be sorted in descending order by the rating
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* The connection to your MySQL server must be to localhost on port 3306
+* You must only use one query to the database
+* You must use the cities relationship for all State objects
+* Results must be sorted in ascending order by states.id and cities.id
+* Results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
-
-[103-rating_genres.sql](./103-rating_genres.sql)
+[102-relationship_cities_states_list.py](./102-relationship_cities_states_list.py)
 ```
-Import the database dump from hbtn_0d_tvshows_rate to your MySQL server: download (same as 102-rating_shows.sql)
-Write a script that lists all genres in the database hbtn_0d_tvshows_rate by their rating.
+Write a script that lists all City objects from the database hbtn_0e_101_usa 
 ```
-* Each record should display: tv_genres.name - rating sum
-* Results must be sorted in descending order by their rating
-* You can use only one SELECT statement
-* The database name will be passed as an argument of the mysql command
+* Your script should take 3 arguments: mysql username, mysql password and database name
+* You must use the module SQLAlchemy
+* Your script should connect to a MySQL server running on localhost at port 3306
+* You must use only one query to the database
+* You must use the state relationship to access to the State object linked to the City object
+* Results must be sorted in ascending order by cities.id
+* Results must be displayed as they are in the example below
+* Your code should not be executed when imported
 
 ## Author
 ### Kevin Yook 
