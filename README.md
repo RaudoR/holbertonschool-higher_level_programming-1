@@ -8,11 +8,11 @@
 
 # MySQL (programming language)
 
-<img alt="Python" src=https://github.com/yook00627/holbertonschool-higher_level_programming/blob/master/1200px-MySQL.svg.png>
+<img alt="MySQL" src=https://github.com/yook00627/holbertonschool-higher_level_programming/blob/master/1200px-MySQL.svg.png width=40% height=40%>
 
 # JavaScript (programming language)
 
-<img alt="Python" src=https://github.com/yook00627/holbertonschool-higher_level_programming/blob/master/javascript_logo.png>
+<img alt="JS" src=https://github.com/yook00627/holbertonschool-higher_level_programming/blob/master/javascript_logo.png>
 
 # Documentation
 
